@@ -1,0 +1,26 @@
+<div class="container col-md-3 mt-5">
+    {{#if errorMessage}}
+    <div class="msg error">
+        {{errorMessage}}
+    </div>
+  {{/if}}
+  <form action="signup" method="POST" class="card card-body mb-3 drop-shadow" novalidate>
+    <h2 class="text-center"> Sign-Up </h2>
+    <div class="form-group">
+      <input type="email" class="form-control" name="email" placeholder="Email" value={{oldInput.email}}>
+    </div>
+    <div class="form-group">
+      <input type="password" class="form-control" name="password" placeholder="password" value={{oldInput.password}}>
+    </div>
+    <div class="form-group">
+      <input type="password" class="form-control" name="password2" placeholder="password" value={{oldInput.password2}}>
+    </div>
+        <div class="form-group">
+      <button type="submit" class="btn btn-primary btn-lg btn-block">Sign Up</button>
+    </div>
+
+    <p class="text-center"> <a href="/reset" class="text-warining"> Forgot your Password? </a></p>
+  </form>
+  <p class="text-center small">Have an account <a href="/login"> Login here!</a></p>
+
+</div>

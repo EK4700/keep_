@@ -1,0 +1,18 @@
+<div class="container mt-5 mx-auto">
+  <div class="row">
+    <div class="col-md-10 m-auto">
+      {{#each orders}}
+      <div class="card card-body my-2 drop-shadow">
+        <h4 class="text-center"> Order: {{_id}} <a href="/orders/{{_id}}"> Invoice</a></h4>
+        <ul class="list-group"> 
+        {{#each products}}
+        <li class="list-group-item"> {{product.title}}
+          <span class="float-right">{{qty}}</span>
+        </li>
+        {{/each}}  
+        </ul>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</div>

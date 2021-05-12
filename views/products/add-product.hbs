@@ -1,0 +1,39 @@
+<section class="container mt-5">
+     {{#if errorMessage}}
+    <div class="msg error">
+        {{errorMessage}}
+    </div>
+  {{/if}}
+    <form action="/{{#if editMode}}edit-product{{else}}add-product {{/if}}" method="POST" class="p-4 bg-dark card"
+        style="box-shadow: 2px 2px 20px rgba(0,0,0,0.4);" enctype="multipart/form-data">
+        <h1 class="text-light text-center my-2">{{#if editMode}} Edit Product{{else}} ADD Product {{/if}} </h1>
+        <div class="form-group">
+            <input type="text" name="title" class="form-control" placeholder="Product Title" value="{{product.title}}">
+        </div>
+        <div class="form-group text-center">
+            <button class="btn btn-main" type="button" id="image-Btn"> Add Image</button>
+        </div>
+        <div class="form-group">
+            <input type="number" name="price" class="form-control" step="0.01" value="{{product.price}}" placeholder="Product Price">
+        </div>
+        <div class="form-group">
+            <textarea name="desc"class="form-control" placeholder="Product Description">
+                {{#if editMode}} {{product.desc}}{{/if}}
+            </textarea>
+        </div>
+        {{#if editMode}}
+        <input type="hidden" name="id" value="{{product.id}}">
+        {{/if}}
+
+        <div class="form-group text-center">
+            <button type="submit" class="btn btn-warning">{{#if editMode}} EDIT {{else}} ADD {{/if}} </button>
+        </div>
+         <input type="file" id="filePicker" name="image" class="form-control" style="display:none">
+    </form>
+</section>
+
+<script>
+    document.getElementById('image-Btn').addEventListener('click', ()=>{
+        document.getElementById('filePicker').click()
+    })
+</script>

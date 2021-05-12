@@ -1,0 +1,35 @@
+<main class="container mt-5">
+  <div class="row">
+    <div class="col-md-5 mb-2">
+      <img src="/{{product.imageUrl}}" alt="" class="img-fluid">
+    </div>
+    <div class="col-md-4">
+      <h4>{{product.title}}</h4>
+      <p> <span class="muted-text"> Price: </span> <span class="text-dark h4"> {{product.price}}</span></p>
+      <hr>
+      <p id="prodDesc">{{product.desc}}</p>
+    </div>
+    <div class="col-md-3">
+      <div class="card card-body text-left">
+        <p class="h4 text-center">Price:<span class="text-dark"> {{product.price}}</span> </p>
+        <p class="m-0 mt-3 text-muted">Free shipping</p>
+        <p class="m-0 mt-3 text-muted">Free Return</p>
+        <p class="m-0 mt-3 text-muted">Secure Transactions</p>
+
+{{#if isAuthenticated}}
+        <form action="">
+          <button type="submit" class="btn btn-info mt-4 text-light">
+            <i class="fas fa-shopping-cart"></i> Add to Cart
+          </button>
+        </form>
+        
+      {{/if}}
+      </div>
+    </div>
+</main>
+
+<script>
+    document.querySelectorAll('#prodDesc').forEach(para=>{
+        para.innerHTML = para.textContent;
+    })
+</script>

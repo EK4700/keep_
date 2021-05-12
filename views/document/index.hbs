@@ -1,0 +1,44 @@
+<section class="container mt-5">
+    <div class="row">
+
+        <div class="col-md-10 m-auto">
+
+            {{#if hasProducts}}
+            {{#each documents}}
+            <div class="card card-body my-2 drop-shadow">
+                <div
+                    class="media align-items-center align-items-lg-start text-center text-lg-left flex-column flex-lg-row">
+                    <a href="/document/document/{{_id}}">
+                        <img src="/{{imageUrl}}" style="box-shadow:2px 2px 5px;" class="mr-4" width="160" height="160"
+                            alt="{{title}}" style="object-fit: contain;">
+                    </a>
+
+                    <div class="media-body mr-3">
+                        <h6 class="media-title font-weight-semibold">
+                            <a href="/document/document/{{_id}}">{{title}}</a>
+                        </h6>
+                        <p class="mb-3" id="prodDesc"> {{desc}}</p>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        {{else}}
+        <h1>No Documents</h1>
+        {{/if}}
+        <div style="text-align: center;">
+            <div class="text-center">
+                <form action='/document/add-document' method="GET" class="p-4 bg-dark card"
+                    style="box-shadow: 2px 2px 20px rgba(0,0,0,0.4); text-align: center;" enctype="multipart/form-data">
+                    <button type='submit' class="btn btn-primary">+ Add Document</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.querySelectorAll('#prodDesc').forEach(para => {
+        para.innerHTML = para.textContent;
+    })
+</script>
